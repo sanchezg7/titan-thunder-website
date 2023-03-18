@@ -29,22 +29,25 @@ const items = [
     }
 ];
 
+// hidden -> display:none (doesn't take up space in the DOM)
+// invisible -> visibility: hidden (takes up original space in DOM, no shown)
+
 const NavBar = () => {
     const route = window.location.pathname.replace(/\/titan-thunder-website/g, "");
     const [selected, setSelected] = useState(items[0]);
 
     return (
         <nav className="flex bg-gray-100 shadow-lg">
-            <div className="max-w-6xl mx-auto px-4">
+            <div className="lg:max-w-6xl lg:mx-auto lg:px-4">
                 <div className="flex justify-between">
                     <div className="flex space-x-7">
                         <div>
                             <a href="#" className="flex items-center py-4 px-2">
                                 <img className="h-8 w-10" src="src/assets/TBT.png" alt=""/>
-                                <span className="font-semibold text-gray-500 text-lg">Titan Thunder</span>
+                                <span className="hidden md:visible font-semibold text-gray-500 text-lg">Titan Thunder</span>
                             </a>
                         </div>
-                        <div className="hidden md:flex space-x-1 items-center">
+                        <div className="flex space-x-1 items-center">
                         {items.map(nav => {
 
                             return <a
